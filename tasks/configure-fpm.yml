@@ -28,6 +28,10 @@
       line: "pm.min_spare_servers = {{ php_fpm_pm_min_spare_servers }}"
     - regexp: '^pm\.max_spare_servers.?=.+$'
       line: "pm.max_spare_servers = {{ php_fpm_pm_max_spare_servers }}"
+    - regexp: '^user.?=.+$'
+      line: "user = {{ php_fpm_user }}"
+    - regexp: '^group.?=.+$'
+      line: "group = {{ php_fpm_group }}"
   when: php_enable_php_fpm
   notify: restart php-fpm
 
